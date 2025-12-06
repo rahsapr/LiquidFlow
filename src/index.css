@@ -1,0 +1,711 @@
+:root {
+  /* ========================================
+     CYBER-FUTURISTIC LIQUID GLASS DESIGN SYSTEM
+     Inspired by visionOS / Spatial Computing
+     ======================================== */
+
+  /* --- Core Backgrounds (Cyber Dark Mode) --- */
+  --bg-primary: #000000;
+  /* True black base */
+  --bg-secondary: #0a0a1a;
+  /* Deep space blue */
+  --bg-tertiary: #1a0b2e;
+  /* Purple-tinted dark */
+
+  /* --- Neon Accent Colors (No Purple) --- */
+  --neon-cyan: #00f2ff;
+  --neon-blue: #0066ff;
+  --neon-teal: #00d9ff;
+  --deep-blue: #001a4d;
+
+  /* --- Heavy Liquid Glass Variables --- */
+  --glass-blur: 40px;
+  /* Heavy blur for depth */
+  --glass-blur-light: 20px;
+  /* Lighter blur for subtle elements */
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  /* Ultra-subtle base */
+  --glass-bg-elevated: rgba(255, 255, 255, 0.08);
+  /* Elevated surfaces */
+  --glass-bg-heavy: rgba(255, 255, 255, 0.15);
+  /* Heavy glass for controls */
+  --glass-border: rgba(255, 255, 255, 0.2);
+  /* Visible borders */
+  --glass-border-bright: rgba(255, 255, 255, 0.4);
+  /* Bright rim lighting */
+  --glass-highlight: rgba(255, 255, 255, 0.5);
+  /* Specular highlights */
+  --glass-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  /* Deep shadows */
+  --glass-shadow-heavy: 0 30px 80px rgba(0, 0, 0, 0.7);
+  /* Extra depth */
+
+  /* --- Text Colors --- */
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.7);
+  --text-tertiary: rgba(255, 255, 255, 0.4);
+  --text-faint: rgba(255, 255, 255, 0.2);
+
+  /* --- Neon Accent System (Jazz Mode Default) --- */
+  --accent: var(--neon-cyan);
+  --accent-hover: #33f5ff;
+  --accent-glow: rgba(0, 242, 255, 0.4);
+  --accent-subtle: rgba(0, 242, 255, 0.15);
+  --accent-shadow: 0 0 20px rgba(0, 242, 255, 0.3);
+  
+  /* --- Interactive Element Variables (Jazz Mode) --- */
+  --item-hover-bg: rgba(0, 242, 255, 0.08);
+  --item-hover-shadow: 0 2px 8px rgba(0, 0, 0, 0.2), 0 0 10px rgba(0, 242, 255, 0.1);
+  --item-active-bg: rgba(0, 242, 255, 0.15);
+  --item-active-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), 0 0 15px rgba(0, 242, 255, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  
+  --button-hover-bg: rgba(0, 242, 255, 0.15);
+  --button-hover-color: var(--neon-cyan);
+  --button-hover-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), 0 0 15px rgba(0, 242, 255, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  
+  --accent-button-bg: rgba(0, 242, 255, 0.15);
+  --accent-button-color: var(--neon-cyan);
+  --accent-button-hover-bg: rgba(0, 242, 255, 0.25);
+  --accent-button-hover-shadow: 0 4px 16px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 242, 255, 0.3);
+  
+  --input-focus-bg: rgba(0, 242, 255, 0.08);
+  --input-focus-shadow: 0 0 0 3px rgba(0, 242, 255, 0.15), inset 0 1px 3px rgba(0, 0, 0, 0.2), 0 0 15px rgba(0, 242, 255, 0.2);
+
+  /* --- System Colors (Neon) --- */
+  --success: #00ff88;
+  /* Neon green */
+  --error: #ff0055;
+  /* Neon red */
+  --warning: #ffaa00;
+  /* Neon amber */
+
+  /* --- Spacing & Layout --- */
+  --nav-height: 72px;
+  --sidebar-width: 320px;
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 28px;
+  --radius-xl: 40px;
+  --radius-full: 9999px;
+
+  /* --- Typography (SF Pro System Stack) --- */
+  --font-sans: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'SF Mono', 'Menlo', 'Monaco', monospace;
+
+  /* --- Teleprompter State Variables --- */
+  --prompt-size: 64px;
+  --prompt-height: 1.6;
+  --prompt-width: 900px;
+
+  /* --- Smooth Easing --- */
+  --ease-spring: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* --- Transitions --- */
+  --transition-fast: 0.15s var(--ease-smooth);
+  --transition-normal: 0.25s var(--ease-smooth);
+  --transition-slow: 0.4s var(--ease-spring);
+}
+
+/* ========================================
+   VIBE MODE (Green/Orange Palette)
+   ======================================== */
+.vibe-mode {
+  --bg-primary: #000000;
+  --bg-secondary: #0a0a0a;
+  --bg-tertiary: #1a1a1a;
+
+  --glass-blur: 40px;
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-bg-elevated: rgba(255, 255, 255, 0.08);
+  --glass-bg-heavy: rgba(255, 255, 255, 0.15);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --glass-border-bright: rgba(255, 255, 255, 0.4);
+  --glass-highlight: rgba(255, 255, 255, 0.5);
+  --glass-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  --glass-shadow-heavy: 0 30px 80px rgba(0, 0, 0, 0.7);
+
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.7);
+  --text-tertiary: rgba(255, 255, 255, 0.4);
+  --text-faint: rgba(255, 255, 255, 0.2);
+
+  /* Green/Orange Accent System */
+  --neon-green: #00ff88;
+  --neon-orange: #ff8800;
+  --neon-cyan: #00ffcc;
+  --accent: var(--neon-green);
+  --accent-hover: #33ff99;
+  --accent-glow: rgba(0, 255, 136, 0.4);
+  --accent-subtle: rgba(0, 255, 136, 0.15);
+  --accent-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+  
+  --error: #ff0055;
+  --success: #00ff88;
+  
+  /* Interactive Elements - Vibe Mode */
+  --item-hover-bg: rgba(0, 255, 136, 0.08);
+  --item-hover-shadow: 0 2px 8px rgba(0, 0, 0, 0.2), 0 0 10px rgba(0, 255, 136, 0.1);
+  --item-active-bg: rgba(0, 255, 136, 0.15);
+  --item-active-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), 0 0 15px rgba(0, 255, 136, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  
+  --button-hover-bg: rgba(0, 255, 136, 0.15);
+  --button-hover-color: var(--neon-green);
+  --button-hover-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), 0 0 15px rgba(0, 255, 136, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  
+  --accent-button-bg: rgba(0, 255, 136, 0.15);
+  --accent-button-color: var(--neon-green);
+  --accent-button-hover-bg: rgba(0, 255, 136, 0.25);
+  --accent-button-hover-shadow: 0 4px 16px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 255, 136, 0.3);
+  
+  --input-focus-bg: rgba(0, 255, 136, 0.08);
+  --input-focus-shadow: 0 0 0 3px rgba(0, 255, 136, 0.15), inset 0 1px 3px rgba(0, 0, 0, 0.2), 0 0 15px rgba(0, 255, 136, 0.2);
+  
+  --play-button-active-bg: radial-gradient(130% 130% at 30% 20%, rgba(0, 255, 136, 0.6) 0%, rgba(0, 255, 136, 0.15) 50%, rgba(0, 255, 136, 0) 100%);
+  --play-button-active-shadow: inset -5px -5px 15px rgba(0, 255, 136, 0.2), inset 5px 5px 15px rgba(255, 255, 255, 0.6), 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 255, 136, 0.4);
+  
+  --voice-button-hover-bg: radial-gradient(130% 130% at 30% 20%, rgba(255, 136, 0, 0.4) 0%, rgba(255, 136, 0, 0.08) 50%, rgba(255, 136, 0, 0) 100%);
+  --voice-button-hover-shadow: inset -3px -3px 10px rgba(255, 136, 0, 0.15), inset 3px 3px 10px rgba(255, 255, 255, 0.5), 0 6px 20px rgba(0, 0, 0, 0.3), 0 0 15px rgba(255, 136, 0, 0.3);
+  --voice-button-recording-bg: radial-gradient(130% 130% at 30% 20%, rgba(255, 0, 85, 0.6) 0%, rgba(255, 0, 85, 0.15) 50%, rgba(255, 0, 85, 0) 100%);
+  --voice-button-recording-shadow: inset -3px -3px 10px rgba(255, 0, 85, 0.2), inset 3px 3px 10px rgba(255, 255, 255, 0.5), 0 6px 20px rgba(0, 0, 0, 0.4), 0 0 25px rgba(255, 0, 85, 0.5);
+}
+
+/* ========================================
+   DARK MODE (Minimal & Professional)
+   ======================================== */
+.dark-mode {
+  --bg-primary: #000000;
+  --bg-secondary: #1c1c1e;
+  --bg-tertiary: #2c2c2e;
+
+  --glass-bg: rgba(28, 28, 30, 0.5);
+  --glass-bg-elevated: rgba(44, 44, 46, 0.6);
+  --glass-bg-heavy: rgba(58, 58, 60, 0.75);
+  --glass-border: rgba(255, 255, 255, 0.06);
+  --glass-border-bright: rgba(255, 255, 255, 0.08);
+  --glass-highlight: rgba(255, 255, 255, 0.1);
+  --glass-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  --glass-shadow-heavy: 0 4px 16px rgba(0, 0, 0, 0.3);
+
+  --text-primary: #f5f5f7;
+  --text-secondary: #98989d;
+  --text-tertiary: #636366;
+  --text-faint: #48484a;
+
+  --accent: #0A84FF;
+  --accent-hover: #409CFF;
+  --accent-glow: rgba(10, 132, 255, 0.2);
+  --accent-subtle: rgba(10, 132, 255, 0.1);
+  --accent-shadow: none;
+  
+  --neon-cyan: #0A84FF;
+  --error: #FF453A;
+  --success: #30D158;
+  
+  /* Interactive Elements - Dark Mode (Minimal) */
+  --item-hover-bg: rgba(10, 132, 255, 0.08);
+  --item-hover-shadow: none;
+  --item-active-bg: rgba(10, 132, 255, 0.15);
+  --item-active-shadow: none;
+  
+  --button-hover-bg: rgba(10, 132, 255, 0.1);
+  --button-hover-color: var(--accent);
+  --button-hover-shadow: none;
+  
+  --accent-button-bg: rgba(10, 132, 255, 0.12);
+  --accent-button-color: var(--accent);
+  --accent-button-hover-bg: rgba(10, 132, 255, 0.18);
+  --accent-button-hover-shadow: none;
+  
+  --input-focus-bg: rgba(10, 132, 255, 0.06);
+  --input-focus-shadow: 0 0 0 3px rgba(10, 132, 255, 0.12);
+  
+  --play-button-active-bg: radial-gradient(circle at 30% 30%, rgba(10, 132, 255, 0.3) 0%, rgba(10, 132, 255, 0.08) 100%);
+  --play-button-active-shadow: inset -2px -2px 6px rgba(10, 132, 255, 0.08), inset 2px 2px 6px rgba(255, 255, 255, 0.25), 0 4px 12px rgba(0, 0, 0, 0.25);
+  
+  --voice-button-hover-bg: radial-gradient(circle at 30% 30%, rgba(10, 132, 255, 0.2) 0%, rgba(10, 132, 255, 0.04) 100%);
+  --voice-button-hover-shadow: inset -2px -2px 5px rgba(10, 132, 255, 0.06), inset 2px 2px 5px rgba(255, 255, 255, 0.25), 0 4px 12px rgba(0, 0, 0, 0.2);
+  --voice-button-recording-bg: radial-gradient(circle at 30% 30%, rgba(255, 69, 58, 0.4) 0%, rgba(255, 69, 58, 0.1) 100%);
+  --voice-button-recording-shadow: inset -2px -2px 5px rgba(255, 69, 58, 0.12), inset 2px 2px 5px rgba(255, 255, 255, 0.25), 0 4px 12px rgba(0, 0, 0, 0.25), 0 0 12px rgba(255, 69, 58, 0.25);
+}
+
+/* ========================================
+   LIGHT MODE (Ultra Minimal)
+   ======================================== */
+.light-mode {
+  --bg-primary: #f5f5f7;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #e8e8ed;
+
+  --glass-bg: rgba(255, 255, 255, 0.6);
+  --glass-bg-elevated: rgba(255, 255, 255, 0.75);
+  --glass-bg-heavy: rgba(255, 255, 255, 0.9);
+  --glass-border: rgba(0, 0, 0, 0.06);
+  --glass-border-bright: rgba(0, 0, 0, 0.08);
+  --glass-highlight: rgba(255, 255, 255, 1);
+  --glass-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  --glass-shadow-heavy: 0 4px 16px rgba(0, 0, 0, 0.06);
+
+  --text-primary: #1d1d1f;
+  --text-secondary: #6e6e73;
+  --text-tertiary: #86868b;
+  --text-faint: #d2d2d7;
+
+  --accent: #007AFF;
+  --accent-hover: #0051D5;
+  --accent-glow: rgba(0, 122, 255, 0.15);
+  --accent-subtle: rgba(0, 122, 255, 0.08);
+  --accent-shadow: none;
+  
+  --neon-cyan: #007AFF;
+  --error: #FF3B30;
+  --success: #34C759;
+  
+  /* Interactive Elements - Light Mode (Ultra Minimal) */
+  --item-hover-bg: rgba(0, 122, 255, 0.06);
+  --item-hover-shadow: none;
+  --item-active-bg: rgba(0, 122, 255, 0.12);
+  --item-active-shadow: none;
+  
+  --button-hover-bg: rgba(0, 122, 255, 0.08);
+  --button-hover-color: var(--accent);
+  --button-hover-shadow: none;
+  
+  --accent-button-bg: rgba(0, 122, 255, 0.1);
+  --accent-button-color: var(--accent);
+  --accent-button-hover-bg: rgba(0, 122, 255, 0.15);
+  --accent-button-hover-shadow: none;
+  
+  --input-focus-bg: rgba(0, 122, 255, 0.04);
+  --input-focus-shadow: 0 0 0 3px rgba(0, 122, 255, 0.1);
+  
+  --play-button-active-bg: radial-gradient(circle at 30% 30%, rgba(0, 122, 255, 0.3) 0%, rgba(0, 122, 255, 0.08) 100%);
+  --play-button-active-shadow: inset -2px -2px 5px rgba(0, 122, 255, 0.08), inset 2px 2px 5px rgba(255, 255, 255, 0.4), 0 2px 8px rgba(0, 0, 0, 0.08);
+  
+  --voice-button-hover-bg: radial-gradient(circle at 30% 30%, rgba(0, 122, 255, 0.2) 0%, rgba(0, 122, 255, 0.04) 100%);
+  --voice-button-hover-shadow: inset -2px -2px 4px rgba(0, 122, 255, 0.06), inset 2px 2px 4px rgba(255, 255, 255, 0.5), 0 2px 8px rgba(0, 0, 0, 0.06);
+  --voice-button-recording-bg: radial-gradient(circle at 30% 30%, rgba(255, 59, 48, 0.35) 0%, rgba(255, 59, 48, 0.08) 100%);
+  --voice-button-recording-shadow: inset -2px -2px 4px rgba(255, 59, 48, 0.1), inset 2px 2px 4px rgba(255, 255, 255, 0.5), 0 2px 8px rgba(0, 0, 0, 0.08), 0 0 10px rgba(255, 59, 48, 0.2);
+}
+
+/* ========================================
+   DARK MODE (Minimal & Professional)
+   ======================================== */
+.dark-mode {
+  --bg-primary: #000000;
+  --bg-secondary: #1c1c1e;
+  --bg-tertiary: #2c2c2e;
+
+  --glass-bg: rgba(28, 28, 30, 0.6);
+  --glass-bg-elevated: rgba(44, 44, 46, 0.7);
+  --glass-bg-heavy: rgba(58, 58, 60, 0.85);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-border-bright: rgba(255, 255, 255, 0.12);
+  --glass-highlight: rgba(255, 255, 255, 0.15);
+  --glass-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  --glass-shadow-heavy: 0 8px 24px rgba(0, 0, 0, 0.4);
+
+  --text-primary: #f5f5f7;
+  --text-secondary: #98989d;
+  --text-tertiary: #636366;
+  --text-faint: #48484a;
+
+  --accent: #0A84FF;
+  --accent-hover: #409CFF;
+  --accent-glow: rgba(10, 132, 255, 0.25);
+  --accent-subtle: rgba(10, 132, 255, 0.12);
+  --accent-shadow: 0 0 12px rgba(10, 132, 255, 0.2);
+  
+  --neon-cyan: #0A84FF;
+  --error: #FF453A;
+  --success: #30D158;
+  
+  /* Interactive Elements - Dark Mode (Simplified) */
+  --item-hover-bg: rgba(10, 132, 255, 0.1);
+  --item-hover-shadow: none;
+  --item-active-bg: rgba(10, 132, 255, 0.18);
+  --item-active-shadow: none;
+  
+  --button-hover-bg: rgba(10, 132, 255, 0.12);
+  --button-hover-color: var(--accent);
+  --button-hover-shadow: none;
+  
+  --accent-button-bg: rgba(10, 132, 255, 0.15);
+  --accent-button-color: var(--accent);
+  --accent-button-hover-bg: rgba(10, 132, 255, 0.22);
+  --accent-button-hover-shadow: none;
+  
+  --input-focus-bg: rgba(10, 132, 255, 0.08);
+  --input-focus-shadow: 0 0 0 3px rgba(10, 132, 255, 0.15);
+  
+  --play-button-active-bg: radial-gradient(circle at 30% 30%, rgba(10, 132, 255, 0.4) 0%, rgba(10, 132, 255, 0.1) 100%);
+  --play-button-active-shadow: inset -3px -3px 8px rgba(10, 132, 255, 0.1), inset 3px 3px 8px rgba(255, 255, 255, 0.3), 0 4px 12px rgba(0, 0, 0, 0.3);
+  
+  --voice-button-hover-bg: radial-gradient(circle at 30% 30%, rgba(10, 132, 255, 0.25) 0%, rgba(10, 132, 255, 0.05) 100%);
+  --voice-button-hover-shadow: inset -2px -2px 6px rgba(10, 132, 255, 0.08), inset 2px 2px 6px rgba(255, 255, 255, 0.3), 0 4px 12px rgba(0, 0, 0, 0.2);
+  --voice-button-recording-bg: radial-gradient(circle at 30% 30%, rgba(255, 69, 58, 0.5) 0%, rgba(255, 69, 58, 0.12) 100%);
+  --voice-button-recording-shadow: inset -2px -2px 6px rgba(255, 69, 58, 0.15), inset 2px 2px 6px rgba(255, 255, 255, 0.3), 0 4px 12px rgba(0, 0, 0, 0.3), 0 0 15px rgba(255, 69, 58, 0.3);
+}
+
+/* ========================================
+   BASE STYLES
+   ======================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 17px;
+  line-height: 1.47;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+}
+
+/* Default Background (Dark Mode) */
+body {
+  background-image: none;
+  background-color: #000000;
+}
+
+/* Vibe Mode Background (Green/Orange) */
+body.vibe-mode {
+  background-image: 
+    radial-gradient(circle at 20% 30%, rgba(0, 255, 136, 0.12) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(255, 136, 0, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(0, 255, 204, 0.08) 0%, transparent 70%),
+    linear-gradient(135deg, #000000 0%, #0a1a0a 50%, #1a0f00 100%);
+}
+
+/* Dark Mode Background */
+body.dark-mode {
+  background-image: none;
+  background-color: #000000;
+}
+
+/* Light Mode Background */
+body.light-mode {
+  background-image: none;
+  background-color: #f5f5f7;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  isolation: isolate;
+  display: flex;
+}
+
+/* ========================================
+   AMBIENT ORBS (Bokeh Effect)
+   ======================================== */
+/* Ambient Orbs - Only in Jazz Mode */
+.studio-container::before,
+.studio-container::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0;
+  z-index: 0;
+  pointer-events: none;
+  animation: float 15s infinite alternate ease-in-out;
+  transition: opacity 0.6s ease;
+}
+
+/* Show orbs only in Vibe mode */
+body.vibe-mode .studio-container::before,
+body.vibe-mode .studio-container::after {
+  opacity: 0.4;
+}
+
+.studio-container::before {
+  width: 400px;
+  height: 400px;
+  background: #00ff88;
+  top: -100px;
+  left: -100px;
+  animation-delay: 0s;
+}
+
+.studio-container::after {
+  width: 500px;
+  height: 500px;
+  background: #ff8800;
+  bottom: -150px;
+  right: -150px;
+  animation-delay: -7s;
+}
+
+@keyframes float {
+  0% { 
+    transform: translate(0, 0) scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% { 
+    transform: translate(30px, 50px) scale(1.15);
+    opacity: 0.4;
+  }
+}
+
+/* ========================================
+   SCROLLBAR
+   ======================================== */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--text-tertiary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+/* ========================================
+   LIQUID GLASS UTILITY (Heavy Glassmorphism)
+   ======================================== */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+.glass-elevated {
+  background: var(--glass-bg-elevated);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-top: 1px solid var(--glass-border-bright); /* Rim lighting */
+  box-shadow: 
+    var(--glass-shadow),
+    inset 0 1px 0 var(--glass-highlight),
+    inset 0 0 30px rgba(255, 255, 255, 0.03);
+}
+
+.glass-heavy {
+  background: var(--glass-bg-heavy);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border-bright);
+  border-top: 2px solid var(--glass-highlight); /* Strong rim lighting */
+  box-shadow: 
+    var(--glass-shadow-heavy),
+    inset 0 2px 0 rgba(255, 255, 255, 0.3),
+    inset 0 0 40px rgba(255, 255, 255, 0.05),
+    0 0 30px rgba(0, 242, 255, 0.1); /* Ambient glow */
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUpCubic {
+  0% {
+    transform: translateX(-50%) translateY(100px) scale(0.95);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(-50%) translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 0 0 var(--accent-glow);
+  }
+
+  70% {
+    box-shadow: 0 0 0 12px transparent;
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s var(--ease-smooth) forwards;
+}
+
+/* ========================================
+   TYPOGRAPHY
+   ======================================== */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+input,
+button,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+  outline: none;
+}
+
+/* ========================================
+   BUTTON STYLES (Liquid Glass Buttons)
+   ======================================== */
+button {
+  transition: transform var(--transition-fast),
+    background-color var(--transition-normal),
+    color var(--transition-fast),
+    opacity var(--transition-fast),
+    box-shadow var(--transition-normal);
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+button:active {
+  transform: scale(0.96) !important;
+}
+
+/* Bubble Button (3D Glass Droplet) */
+.bubble-btn {
+  border-radius: 50%;
+  background: radial-gradient(130% 130% at 30% 20%, 
+    rgba(255, 255, 255, 0.4) 0%, 
+    rgba(255, 255, 255, 0.05) 50%, 
+    rgba(255, 255, 255, 0) 100%);
+  box-shadow: 
+    inset -5px -5px 15px rgba(255, 255, 255, 0.1),
+    inset 5px 5px 15px rgba(255, 255, 255, 0.5),
+    0 10px 30px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.bubble-btn:hover {
+  box-shadow: 
+    inset -5px -5px 15px rgba(255, 255, 255, 0.15),
+    inset 5px 5px 15px rgba(255, 255, 255, 0.6),
+    0 15px 40px rgba(0, 0, 0, 0.5),
+    0 0 20px var(--accent-glow);
+}
+
+.bubble-btn:active {
+  box-shadow: 
+    inset -3px -3px 10px rgba(255, 255, 255, 0.1),
+    inset 3px 3px 10px rgba(255, 255, 255, 0.4),
+    0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* ========================================
+   GLOBAL TOOLTIPS (Context-Aware)
+   ======================================== */
+[data-tooltip] {
+  position: relative;
+}
+
+[data-tooltip]::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%) scale(0.95);
+  background: var(--glass-bg-heavy);
+  backdrop-filter: blur(var(--glass-blur-light));
+  -webkit-backdrop-filter: blur(var(--glass-blur-light));
+  color: var(--text-primary);
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s var(--ease-smooth);
+  pointer-events: none;
+  z-index: 10000;
+  box-shadow: var(--glass-shadow);
+  border: 1px solid var(--glass-border);
+  max-width: 200px;
+  white-space: normal;
+  text-align: center;
+}
+
+[data-tooltip]:hover::before {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) scale(1);
+}
+
+/* Bottom-positioned tooltips for elements near top of screen */
+.control-bar [data-tooltip]::before,
+.sidebar-footer [data-tooltip]::before {
+  bottom: auto;
+  top: calc(100% + 10px);
+}
+
+/* Right-aligned tooltips for left-side elements */
+.sidebar [data-tooltip]::before {
+  left: auto;
+  right: 0;
+  transform: translateX(0) scale(0.95);
+}
+
+.sidebar [data-tooltip]:hover::before {
+  transform: translateX(0) scale(1);
+}
+
+/* ========================================
+   DYSLEXIC MODE
+   ======================================== */
+.dyslexic-mode {
+  --font-sans: 'OpenDyslexic', 'Comic Sans MS', sans-serif !important;
+  --prompt-height: 2.0;
+}

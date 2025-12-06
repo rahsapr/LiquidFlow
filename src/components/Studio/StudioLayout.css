@@ -1,0 +1,140 @@
+.studio-container {
+    display: grid;
+    grid-template-columns: 320px 1fr 0px;
+    /* Sidebar | Editor | Hidden Stage */
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    position: relative;
+    transition: grid-template-columns 0.4s ease;
+    z-index: 1;
+}
+
+.studio-container.playing {
+    grid-template-columns: 0px 0px 1fr;
+    /* Collapse sidebar & editor, show stage */
+}
+
+.studio-container.playing .editor-pane {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-20px);
+}
+
+/* The Stage Area */
+.stage-area {
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Control Bar Transition */
+.control-bar {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.studio-container.playing:not(:hover) .control-bar {
+    opacity: 0;
+    transform: translateY(20px);
+    /* Slide down */
+    pointer-events: none;
+}
+
+
+/* ========================================
+   MOBILE RESPONSIVE LAYOUT
+   ======================================== */
+@media (max-width: 1024px) {
+    .studio-container {
+        grid-template-columns: 280px minmax(400px, 40%) 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .studio-container {
+        grid-template-columns: 1fr;
+        position: relative;
+    }
+
+    /* Mobile: Show only one section at a time */
+    .sidebar,
+    .editor-pane,
+    .stage-area {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    /* Default: Show sidebar (home or script list) */
+    .sidebar {
+        transform: translateX(0);
+        opacity: 1;
+        z-index: 30;
+    }
+
+    .editor-pane {
+        transform: translateX(100%);
+        opacity: 0;
+        z-index: 20;
+    }
+
+    .stage-area {
+        transform: translateX(100%);
+        opacity: 0;
+        z-index: 10;
+    }
+
+    /* When script is selected: Show editor, hide sidebar */
+    .studio-container.has-script .sidebar {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    .studio-container.has-script .editor-pane {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    /* When playing: Show stage, hide everything else */
+    .studio-container.playing .sidebar,
+    .studio-container.playing .editor-pane {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    .studio-container.playing .stage-area {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@media (max-width: 480px) {
+    .home-features {
+        grid-template-columns: 1fr;
+    }
+    
+    .home-actions {
+        flex-direction: column;
+    }
+    
+    .shortcut-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* Portrait phone optimization (419px width) */
+@media (max-width: 480px) and (orientation: portrait) {
+    .studio-container:not(.playing) .sidebar {
+        width: 100vw;
+        max-width: 100vw;
+    }
+    
+    .studio-container:not(.playing) .editor-pane {
+        padding: 16px;
+    }
+}

@@ -1,0 +1,74 @@
+/* ========================================
+   MOBILE RESPONSIVE CONTROL BAR
+   ======================================== */
+@media (max-width: 768px) {
+    .control-bar {
+        height: 68px !important;
+        padding: 0 16px !important;
+        gap: 12px !important;
+        min-width: 95vw !important;
+        bottom: 20px !important;
+    }
+
+    .play-toggle {
+        width: 52px !important;
+        height: 52px !important;
+    }
+
+    .voice-btn {
+        width: 46px !important;
+        height: 46px !important;
+    }
+
+    .icon-btn {
+        width: 40px !important;
+        height: 40px !important;
+    }
+
+    .control-label {
+        font-size: 9px !important;
+    }
+
+    .value-badge {
+        font-size: 11px !important;
+        min-width: 32px !important;
+    }
+
+    input[type=range] {
+        width: 60px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .control-bar {
+        height: auto !important;
+        padding: 12px !important;
+        gap: 8px !important;
+        flex-wrap: wrap !important;
+    }
+
+    .control-group {
+        gap: 8px !important;
+    }
+
+    .divider {
+        display: none !important;
+    }
+
+    .play-toggle {
+        width: 48px !important;
+        height: 48px !important;
+        font-size: 18px !important;
+    }
+
+    .voice-btn {
+        width: 42px !important;
+        height: 42px !important;
+    }
+
+    .icon-btn {
+        width: 36px !important;
+        height: 36px !important;
+        font-size: 16px !important;
+    }
+}

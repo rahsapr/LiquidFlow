@@ -1,0 +1,218 @@
+.editor-pane {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  padding: 0;
+  border: none;
+  transition: transform 0.3s var(--ease-spring), opacity 0.3s ease;
+  background: transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.editor-pane.dragging {
+  background: var(--item-hover-bg);
+}
+
+.editor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 32px 16px;
+  flex-shrink: 0;
+}
+
+.script-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 17px;
+  line-height: 1.7;
+  resize: none;
+  outline: none;
+  padding: 0 32px 100px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  overflow-y: auto;
+  height: 100%;
+  position: relative;
+  
+  /* Magical fade-out at bottom */
+  mask-image: linear-gradient(to bottom, 
+    black 0%, 
+    black calc(100% - 120px), 
+    transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, 
+    black 0%, 
+    black calc(100% - 120px), 
+    transparent 100%);
+}
+
+/* Subtle scrollbar */
+.script-input::-webkit-scrollbar {
+  width: 6px;
+}
+
+.script-input::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.script-input::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+
+.script-input::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.script-input::placeholder {
+  color: var(--text-tertiary);
+  opacity: 0.6;
+}
+
+.title-input {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid transparent;
+  color: var(--text-primary);
+  font-size: 1.5rem;
+  font-weight: 700;
+  width: 60%;
+  padding: 10px 0;
+  outline: none;
+  transition: all 0.3s var(--ease-smooth);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.title-input:focus {
+  border-bottom-color: var(--accent);
+  width: 80%;
+}
+
+.action-btn {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: none;
+  color: var(--text-secondary);
+  height: 40px;
+  padding: 0 18px;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all var(--transition-normal);
+}
+
+.action-btn:hover {
+  background: var(--button-hover-bg);
+  color: var(--button-hover-color);
+  transform: scale(1.03);
+  box-shadow: var(--button-hover-shadow);
+}
+
+.play-btn {
+  background: var(--accent-button-bg);
+  color: var(--accent-button-color);
+  border: none;
+  font-weight: 700;
+}
+
+.play-btn:hover {
+  background: var(--accent-button-hover-bg);
+  box-shadow: var(--accent-button-hover-shadow);
+  transform: scale(1.04);
+}
+
+.download-btn {
+  border: 1px solid var(--glass-border);
+}
+
+/* Dictation Button Pulse - Neon Glow */
+.dictation-btn.recording {
+  color: white;
+  background: radial-gradient(130% 130% at 30% 20%, 
+    rgba(255, 0, 85, 0.7) 0%, 
+    rgba(255, 0, 85, 0.3) 100%);
+  border: 1px solid var(--error);
+  animation: pulseGlowNeon 1.5s infinite;
+}
+
+@keyframes pulseGlowNeon {
+  0% {
+    box-shadow: 
+      0 0 20px rgba(255, 0, 85, 0.4),
+      0 0 0 0 rgba(255, 0, 85, 0.5),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  }
+  70% {
+    box-shadow: 
+      0 0 30px rgba(255, 0, 85, 0.6),
+      0 0 0 15px rgba(255, 0, 85, 0),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  }
+  100% {
+    box-shadow: 
+      0 0 20px rgba(255, 0, 85, 0.4),
+      0 0 0 0 rgba(255, 0, 85, 0),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  }
+}
+
+
+/* Editor wrapper for proper layout */
+.editor-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+.editor-content {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  padding: 0 32px;
+}
+
+
+/* Mobile back button */
+.back-btn {
+    display: none;
+    background: rgba(255, 255, 255, 0.05);
+    border: none;
+    color: var(--text-secondary);
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-normal);
+}
+
+.back-btn:hover {
+    background: var(--button-hover-bg);
+    color: var(--button-hover-color);
+}
+
+@media (max-width: 768px) {
+    .back-btn.mobile-only {
+        display: flex;
+    }
+    
+    .editor-header {
+        padding: 16px;
+        gap: 12px;
+    }
+    
+    .title-input {
+        font-size: 1.2rem;
+    }
+}
