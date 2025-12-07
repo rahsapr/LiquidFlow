@@ -2,7 +2,7 @@
 
 A modern, professional teleprompter app built with React and Vite, featuring Apple's **Liquid Glass** design aesthetic.
 
-**Live Demo:** [https://rahsapr.github.io/teleprompter/](https://rahsapr.github.io/teleprompter/)
+**Live Demo:** [https://rahsapr.github.io/LiquidFlow/](https://rahsapr.github.io/LiquidFlow/)
 
 ---
 
